@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Political System in India</title>
+    <script>
+        var politicalProblems = [
+            "Corruption in various levels of government.",
+            "Economic disparities",
+            "Challenges related to minority rights",
+            "Political instability",
+            "Issues related to electoral integrity"
+        ];
+
+        function showContent(id) {
+            var sections = document.querySelectorAll('.content-section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function showDescription() {
+            var selectBox = document.getElementById("selection");
+            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+
+            var description;
+            if (selectedValue === "rajyasabhacontent") {
+                description = "Purpose: To elect members to the Rajya Sabha, the legislative assembly of each state.<br>Frequency: Every five years, unless early elections are necessary.";
+            } else if (selectedValue === "loksabhacontent") {
+                description = "Purpose: To elect members to the Lok Sabha, the lower house of Parliament.<br>Frequency: Every five years, unless early elections are called.";
+            } else if (selectedValue === "vidhanasabhacontent") {
+                description = "Purpose: To elect members to the Vidhan Sabha, the legislative assembly of each state.<br>Frequency: Every five years, unless early elections are necessary.";
+            } else {
+                description = "";
+            }
+
+            document.getElementById("descriptionBox").innerHTML = description;
+        }
+
+        function displayProblems() {
+            var problemsList = document.getElementById("problemsList");
+            problemsList.innerHTML = '';
+
+            politicalProblems.forEach(function(problem) {
+                var listItem = document.createElement('li');
+                listItem.textContent = problem;
+                problemsList.appendChild(listItem);
+            });
+        }
+
+        function displayIndia() {
+            const patterns = {
+                'I': [
+                    "*****",
+                    "  *  ",
+                    "  *  ",
+                    "  *  ",
+                    "*****"
+                ],
+                'N': [
+                    "*   *",
+                    "**  *",
+                    "* * *",
+                    "*  **",
+                    "*   *"
+                ],
+                'D': [
+                    "**** ",
+                    "*   *",
+                    "*   *",
+                    "*   *",
+                    "**** "
+                ],
+                'A': [
+                    "  *  ",
+                    " * * ",
+                    "*****",
+                    "*   *",
+                    "*   *"
+                ]
+            };
+
+            const lines = ["", "", "", "", ""];
+            for (const letter of "INDIA") {
+                const pattern = patterns[letter];
+                for (let i = 0; i < pattern.length; i++) {
+                    lines[i] += pattern[i] + "  "; 
+                }
+            }
+
+            let result = "";
+            for (const line of lines) {
+                result += line + "\n";
+            }
+
+            document.getElementById("indiaPattern").textContent = result;
+        }
+
+        window.onload = function() {
+            displayIndia();
+        };
+    </script>
+</head>
+<body style="background-color:LightBlue; text-align:center">
+<h2 style="color: Blue;"></h2>
+    <pre id="indiaPattern" style="font-family: monospace; background-color: white; color: Green;"></pre>
+    <h1 style="color: black; text-decoration: underline;">Political System in India</h1>
+
+    <div>
+        <img src="https://raw.githubusercontent.com/KaveePrab/images-and-audio/main/politicsindia.png" alt="" style="width: 80%; max-width: 250px;">
+    </div>
+
+    <h2 style="color: Blue;">Introduction to Indian Politics</h2>
+    <p style="background-color: Yellow;">Politics of India works within the framework of the country's constitution. India is a parliamentary secular democratic republic in which the President of India is the head of the state and the Prime Minister of India is the head of government.</p>
+
+    <div class="audio-container">
+        <h2 style="color: Blue;">Independence Day Song</h2>
+        <p>Click to play the song!</p>
+        <audio controls style="max-width: 100%;">
+            <source src="https://raw.githubusercontent.com/KaveePrab/audio/main/independence%20(1).mp3
+" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <h2 style="color: Blue;">Structure of Government</h2>
+    <p>Click the buttons to see the current president, prime minister and counsil of ministers.</p>
+    <button onclick="showContent('presidentContent')">President of India</button>
+    <button onclick="showContent('pmContent')">Prime Minister of India</button>
+    <button onclick="showContent('councilContent')">Council of Ministers</button>
+<div id="presidentContent" class="content-section" style="display: none;">
+        <h2>President of India</h2>
+        <img src="https://raw.githubusercontent.com/KaveePrab/images-and-audio/main/PresidentIndia.jpg" alt="President of India" style="max-width: 100%; height: auto;">
+        <p>The President of India is the head of state of the Republic of India. The President is the nominal head of the executive, the first citizen of the country, as well as the supreme commander of the Indian Armed Forces. <b>Droupadi Murmu</b> is the 15th and current President, having taken office from 25 July.</p>
+    </div>
+
+    <div id="pmContent" class="content-section" style="display: none;">
+        <h2>Prime Minister of India</h2>
+        <img src="https://raw.githubusercontent.com/KaveePrab/images-and-audio/main/pmimage.png" alt="Prime Minister of India" style="max-width: 100%; height: auto;">
+        <p>The Prime Minister of India is the head of the government of the Republic of India. Executive authority is vested in the Prime Minister and his chosen council of ministers, despite the President of India being the nominal head of the executive. The Prime Minister has to be a member of one of the houses of the bicameral Parliament of India, alongside heading the respective house. The Prime Minister and his cabinet are at all times responsible to the Lok Sabha. <b>Shri Narendra Modi</b> is the current Prime Minister of India.</p>
+    </div>
+
+    <div id="councilContent" class="content-section" style="display: none;">
+        <h2>Council of Ministers</h2>
+        <img src="https://raw.githubusercontent.com/KaveePrab/images-and-audio/main/counsil.jpg" alt="Council of Ministers" style="max-width: 20%; height: auto;">
+        <p>The Union Council of Ministers, also called the Union Cabinet, is the principal executive organ of the Government of India, which functions as the senior decision-making body of the executive branch. It is chaired by the Prime Minister and consists of the heads of each of the executive government ministries. Currently, the Council is headed by Prime Minister Narendra Modi and consists of 29 members, including the Prime Minister. The Council is subject to the Parliament of India.</p>
+    </div>
+    <h2 style="color: Blue;">Parliament of India</h2>
+    <p> Chose Lok sabha or Rajhya sabha to see more information through wikipedia.</p>
+    <form>
+        <input type="radio" id="lokSabhaRadio" name="parliament" onclick="showContent('lokSabhaContent')">
+        <label for="lokSabhaRadio">Lok Sabha</label><br>
+        <input type="radio" id="rajyaSabhaRadio" name="parliament" onclick="showContent('rajyaSabhaContent')">
+        <label for="rajyaSabhaRadio">Rajya Sabha</label><br>
+    </form>
+    
+     <div id="lokSabhaContent" class="content-section" style="display: none;">
+        <h2>Lok Sabha</h2>
+        <iframe src="https://en.wikipedia.org/wiki/Lok_Sabha" style="width: 100%; height: 500px;"></iframe>
+        <p style="color: Red;">The Lok Sabha, or House of the People, is the lower house of Parliament. Members of Lok Sabha are directly elected by the people of India.</p>
+    </div>
+
+    <div id="rajyaSabhaContent" class="content-section" style="display: none;">
+        <h2>Rajya Sabha</h2>
+        <iframe src="https://en.wikipedia.org/wiki/Rajya_Sabha" style="width: 100%; height: 500px;"></iframe>
+        <p style="color: Red;">The Rajya Sabha, or Council of States, is the upper house of Parliament. Members of Rajya Sabha are elected by the elected members of State Legislative Assemblies.</p>
+    </div>
+
+    <h2 style="color: Blue;">Electoral System in India</h2>
+    <select id="selection" onchange="showDescription()">
+        <option value="none">--Select an option--</option>
+        <option value="rajyasabhacontent">Election for the Rajya Sabha</option>
+        <option value="loksabhacontent">Election for the Lok Sabha</option>
+        <option value="vidhanasabhacontent">Election for the Vidhan Sabha</option>
+    </select>
+
+    <div id="descriptionBox" style="white-space: pre-line;"></div>
+
+    <h2 style="color: Blue;">Current Political Problems in India</h2>
+    <button onclick="displayProblems()">Show Problems</button>
+    <ul id="problemsList"></ul>
+
+    <h2 style="color: Blue;">Judicial System of India</h2>
+    <img src="https://raw.githubusercontent.com/KaveePrab/images-and-audio/main/judicial.jpg" alt="" style="width: 80%; max-width: 250px;">
+    <p>The Indian judiciary is a single integrated system. The constitution divides the judiciary into two parts: the superior judiciary (consisting of the Supreme Court and the High Courts) and the subordinate judiciary (the lower courts, which are under the supervision of the High Courts).<br>For more information on the judicial system of India, visit <a href="https://en.wikipedia.org/wiki/Judiciary_of_India" target="_blank">Judiciary of India</a>.</p>
+
+    
+</body>
+</html>
